@@ -11,6 +11,14 @@ var matched: bool = false
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
 
+func destory():
+	var bullet = BulletFactory.get_builet("fire")
+	bullet.position = global_position
+	get_tree().current_scene.add_child(bullet)
+
+	queue_free()
+
+
 func set_matched():
 	matched = true
 	sprite_2d.modulate.a = 0.5

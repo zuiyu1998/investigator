@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://c26etkolqs7lu"]
+
+[ext_resource type="Script" uid="uid://ysmmf8g0wlrc" path="res://src/battle/bullet/bullet.gd" id="1_fpilo"]
+[ext_resource type="PackedScene" uid="uid://l3hsyy7mc5w5" path="res://src/battle/common/hitbox.tscn" id="2_tqjvm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0a6a1"]
+size = Vector2(8, 7)
+
+[node name="Bullet" type="Node2D"]
+script = ExtResource("1_fpilo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+hframes = 4
+region_enabled = true
+region_rect = Rect2(96, 80, 64, 16)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Hitbix" parent="." instance=ExtResource("2_tqjvm")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbix"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_0a6a1")

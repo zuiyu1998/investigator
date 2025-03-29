@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://cq06ypdkrcu6r" path="res://src/enemy/enemy.tscn" id="1_4s65k"]
 [ext_resource type="Script" uid="uid://btnm3bbrvvc4h" path="res://src/enemy/tony.gd" id="2_lt7hi"]
-[ext_resource type="Texture2D" uid="uid://dqcgt56hqsrp2" path="res://src/enemy/asset/Idle.png" id="2_nv8ij"]
 [ext_resource type="Texture2D" uid="uid://by54vjmqxhea8" path="res://src/enemy/ui/asset/health_bg.png" id="3_1vhau"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tbapq"]
@@ -16,14 +15,17 @@ region = Rect2(51, 6, 42, 5)
 [sub_resource type="AtlasTexture" id="AtlasTexture_lt7hi"]
 atlas = SubResource("AtlasTexture_1vhau")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1vhau"]
+size = Vector2(84, 147)
+
 [node name="Tony" instance=ExtResource("1_4s65k")]
 script = ExtResource("2_lt7hi")
+health = 200
+max_health = 200
 
 [node name="Sprite2D" parent="." index="0"]
 position = Vector2(0, -127)
 scale = Vector2(2, 2)
-texture = ExtResource("2_nv8ij")
-hframes = 6
 
 [node name="HealthUi" type="TextureProgressBar" parent="." index="1"]
 offset_left = -50.0
@@ -38,3 +40,10 @@ texture_under = SubResource("AtlasTexture_tbapq")
 texture_progress = SubResource("AtlasTexture_lt7hi")
 texture_progress_offset = Vector2(4, 3)
 metadata/_edit_use_anchors_ = true
+
+[node name="Hurtbox" parent="." index="2" node_paths=PackedStringArray("target")]
+target = NodePath("..")
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2(0, -73)
+shape = SubResource("RectangleShape2D_1vhau")

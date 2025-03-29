@@ -8,16 +8,24 @@
 
 [node name="Level" type="Node2D" parent="."]
 
+[node name="GridContainer" type="HBoxContainer" parent="Level"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="TextureRect" type="TextureRect" parent="Level/GridContainer"]
+layout_mode = 2
+
 [node name="EnemyContainer" type="Node2D" parent="Level"]
+metadata/_edit_lock_ = true
 
 [node name="Tony" parent="Level/EnemyContainer" instance=ExtResource("2_0xm2m")]
-position = Vector2(887, 260)
-script = null
+position = Vector2(796, 217)
 
 [node name="Grid" type="Node2D" parent="Level"]
 position = Vector2(896, 504)
 script = ExtResource("1_ig7tw")
 y_offest = 6
+metadata/_edit_lock_ = true
 
 [node name="DestroyTimer" type="Timer" parent="Level/Grid"]
 wait_time = 0.3
@@ -40,6 +48,7 @@ offset_bottom = 1078.0
 theme_override_constants/h_separation = 16
 columns = 4
 script = ExtResource("3_1bvp3")
+metadata/_edit_lock_ = true
 
 [connection signal="timeout" from="Level/Grid/DestroyTimer" to="Level/Grid" method="_on_destroy_timer_timeout"]
 [connection signal="timeout" from="Level/Grid/CollapseTimer" to="Level/Grid" method="_on_collapse_timer_timeout"]

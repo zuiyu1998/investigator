@@ -298,7 +298,7 @@ func destory_matchs():
 			var piece = pieces[i][j]
 			if piece is Piece:
 				if piece.matched:
-					piece.queue_free()
+					piece.destory()
 					pieces[i][j] = null
 	collapse_timer.start()
 

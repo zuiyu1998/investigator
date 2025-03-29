@@ -1,8 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://cq06ypdkrcu6r"]
+[gd_scene load_steps=4 format=3 uid="uid://cq06ypdkrcu6r"]
 
 [ext_resource type="Script" uid="uid://lykekibiqekv" path="res://src/enemy/enemy.gd" id="1_6j2al"]
+[ext_resource type="Texture2D" uid="uid://dqcgt56hqsrp2" path="res://src/enemy/asset/Idle.png" id="2_ig63i"]
+[ext_resource type="PackedScene" uid="uid://c5t3od608xopv" path="res://src/battle/common/hurtbox.tscn" id="3_xso4u"]
 
-[node name="Enemy" type="Node2D"]
+[node name="Enemy" type="Node2D" groups=["Enemy"]]
 script = ExtResource("1_6j2al")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -64)
+texture = ExtResource("2_ig63i")
+hframes = 6
+
+[node name="Hurtbox" parent="." instance=ExtResource("3_xso4u")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
