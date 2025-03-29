@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0syjid73lxpg"]
+
+[ext_resource type="PackedScene" uid="uid://d2u7n6jtojdiu" path="res://src/piece/piece_ui.tscn" id="1_2hq1l"]
+[ext_resource type="PackedScene" uid="uid://cgyvjfop3f6kc" path="res://src/piece/green.tscn" id="2_2hq1l"]
+[ext_resource type="Texture2D" uid="uid://chvrmm0fy5p5c" path="res://src/piece/asset/Green Piece.png" id="3_xap5k"]
+
+[node name="GreenPieceUi" instance=ExtResource("1_2hq1l")]
+piece_name = "green"
+piece_tscn = ExtResource("2_2hq1l")
+
+[node name="TextureRect" parent="." index="0"]
+texture = ExtResource("3_xap5k")

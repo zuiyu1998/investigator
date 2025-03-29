@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2u7n6jtojdiu"]
+
+[ext_resource type="Script" uid="uid://bw7jcbiqighgu" path="res://src/piece/piece_ui.gd" id="1_4kwn6"]
+[ext_resource type="Texture2D" uid="uid://bjcaf0pbkhvx1" path="res://src/piece/asset/Blue Piece.png" id="1_10ea1"]
+
+[node name="PieceUi" type="HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(64, 64)
+size_flags_stretch_ratio = 0.0
+script = ExtResource("1_4kwn6")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_10ea1")
+expand_mode = 2
+stretch_mode = 4

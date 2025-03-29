@@ -1,11 +1,19 @@
 class_name Piece
 extends Node2D
 
+# 棋子的唯一id
+@export var piece_id: int
 # 棋子的匹配类型
 @export var match_type: MatchingController.MatchType = MatchingController.MatchType.SIGLE
 
-# 棋子的唯一id
-@export var piece_id: int
+var matched: bool = false
+
+@onready var sprite_2d: Sprite2D = $Sprite2D
+
+
+func set_matched():
+	matched = true
+	sprite_2d.modulate.a = 0.5
 
 
 func move(target: Vector2):
