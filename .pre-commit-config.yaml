@@ -1,0 +1,22 @@
+fail_fast: false
+repos:
+  # GDScript Toolkit
+  - repo: https://github.com/Scony/godot-gdscript-toolkit
+    rev: 5df59529a16530ce8e5c9b964c9f11f5b7f6e7ec
+    hooks:
+      - id: gdlint
+        name: gdlint
+        description: 'gdlint - linter for GDScript'
+        entry: gdlint
+        language: python
+        language_version: python3
+        require_serial: true
+        types: [gdscript]
+      - id: gdformat
+        name: gdformat
+        description: 'gdformat - formatter for GDScript'
+        entry: gdformat
+        language: python
+        language_version: python3
+        require_serial: true
+        types: [gdscript]
