@@ -23,7 +23,7 @@ func check_match_type(match_type: MatchType, id: int) -> bool:
 		_count += 1
 		return true
 
-	if _match_type == MatchType.SIGLE:
+	if _match_type == MatchType.ALL:
 		_match_type = match_type
 		_id = id
 		_count += 1

@@ -58,6 +58,9 @@ func piece_is_match_column(x: int, y: int, piece: Piece) -> MatchResult:
 			break
 		resu.piece_postions.push_back(Vector2i(x, piece_y))
 
+	print(controller.get_match_type_count())
+	print(resu.piece_postions)
+
 	resu.match_state = controller.get_match_type_count() >= min_piece
 
 	return resu
