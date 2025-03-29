@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://chvrmm0fy5p5c" path="res://src/piece/asset/Green Piece.png" id="2_st13b"]
 
 [node name="Green" instance=ExtResource("1_st13b")]
+piece_id = 2
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_st13b")

@@ -1,8 +1,8 @@
 class_name Piece
 extends Node2D
 
-@onready var label: Label = $Sprite2D/Control/Label
+# 棋子的匹配类型
+@export var match_type: MatchingController.MatchType = MatchingController.MatchType.Sigle
 
-
-func get_piece_name() -> String:
-	return label.text
+# 棋子的唯一id
+@export var piece_id: int
