@@ -7,4 +7,6 @@
 script = ExtResource("1_7dygj")
 bullet_update_value = 1
 bullet_tscn = ExtResource("1_dod8u")
+buf = true
+target = 1
 metadata/_custom_type_script = "uid://btr1tdb4rowea"

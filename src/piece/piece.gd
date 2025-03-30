@@ -22,6 +22,19 @@ func get_price() -> int:
 	return price
 
 
+func get_model() -> PieceModel:
+	var model = PieceModel.new()
+	model.price = get_price()
+	model.god_kind = god_kind
+
+	var effects = piece_effects.map(
+		func(effect): return PieceModel.PieceEffectModel.new_model(effect)
+	)
+	model.effects.assign(effects)
+
+	return model
+
+
 func destory():
 	for piece_effect in piece_effects:
 		var bullet = piece_effect.spawn_bullet(global_position)

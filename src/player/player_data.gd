@@ -1,8 +1,8 @@
 class_name PlayerData
 extends Node2D
 
-signal health_update
-signal reason_update
+signal health_update(update: int)
+signal reason_update(update: int)
 
 # 健康度
 var health: int = 100
@@ -25,7 +25,8 @@ func get_reason_percent() -> float:
 
 func on_update_reason(update: int):
 	reason += update
-	reason_update.emit()
+	reason = mini(reason, self.max_reason)
+	reason_update.emit(update)
 
 
 func get_health_percent() -> float:
@@ -34,4 +35,5 @@ func get_health_percent() -> float:
 
 func on_update_helath(update: int):
 	health += update
-	health_update.emit()
+	health = mini(health, self.max_health)
+	health_update.emit(update)

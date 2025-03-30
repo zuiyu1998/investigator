@@ -20,6 +20,8 @@ config/icon="res://icon.svg"
 PLAYER_DATA="*res://src/player/player_data.tscn"
 SCENE_MANAGER="*res://src/tools/scene_manager.tscn"
 GAME_STATE_MANAGER="*res://src/tools/game_state_manager.tscn"
+PIECE_TOOLTIP="*res://src/tools/piece_tooltip.tscn"
+FLOAT_TEXT="*res://src/tools/float_text.gd"
 
 [display]
 
@@ -37,6 +39,11 @@ PlayerHealth=""
 touch={
 "deadzone": 0.2,
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(181, 21),"global_position":Vector2(190, 69),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+piece_show={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":2,"position":Vector2(85, 20),"global_position":Vector2(94, 68),"factor":1.0,"button_index":2,"canceled":false,"pressed":true,"double_click":false,"script":null)
 ]
 }
 

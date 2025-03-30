@@ -15,3 +15,5 @@ hframes = 6
 [node name="Hurtbox" parent="." instance=ExtResource("3_xso4u")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+
+[node name="FloatTextSource" type="Marker2D" parent="."]

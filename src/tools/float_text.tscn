@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://24o0myie8gey"]
+
+[ext_resource type="Script" uid="uid://ba0tgq2dweayu" path="res://src/tools/float_text.gd" id="1_rlbm2"]
+
+[node name="FloatText" type="Node"]
+script = ExtResource("1_rlbm2")

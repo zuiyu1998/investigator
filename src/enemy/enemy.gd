@@ -9,8 +9,12 @@ extends Node2D
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
+@onready var float_text_source: Marker2D = $FloatTextSource
+
 
 func on_damage(damge: Damage):
+	var float_text = GlobalVar.get_single_float_text()
+	float_text.display_text(float_text_source.global_position, -damge.damage, "#ffffff")
 	health -= damge.damage
 
 

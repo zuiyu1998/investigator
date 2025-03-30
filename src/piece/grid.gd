@@ -219,16 +219,27 @@ func spawn_pieces():
 			pieces[i][j] = piece
 
 
-func _unhandled_input(_event: InputEvent) -> void:
-	_on_touch_input()
+func _unhandled_input(event: InputEvent) -> void:
+	_on_touch_input(event)
 
 
-func _on_touch_input():
+func _on_touch_input(_event: InputEvent):
+	if state == State.BUSY:
+		return
+
+	if Input.is_action_pressed("piece_show"):
+		var mouse_position = get_local_mouse_position()
+		var pixel_position = pixel_to_position(mouse_position)
+		if is_in_grid(pixel_position.x, pixel_position.y):
+			var piece = pieces[pixel_position.x][pixel_position.y]
+			if piece is Piece:
+				var model = piece.get_model()
+				GlobalVar.get_single_piece_tootip().show_piece(model)
+		return
+
 	if not level.is_move():
 		return
 
-	if state == State.BUSY:
-		return
 	if Input.is_action_just_pressed("touch"):
 		var mouse_position = get_local_mouse_position()
 		var pixel_position = pixel_to_position(mouse_position)
