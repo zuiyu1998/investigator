@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://l3hsyy7mc5w5"]
 
-[ext_resource type="Script" uid="uid://cnw78pud8h4o8" path="res://src/battle/common/hitbox.gd" id="1_5g0sg"]
+[ext_resource type="Script" uid="uid://cnw78pud8h4o8" path="res://src/bullet/common/hitbox.gd" id="1_5g0sg"]
 
 [node name="Hitbix" type="Area2D"]
 collision_layer = 2

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dm7cb06m20gmk"]
+
+[ext_resource type="PackedScene" uid="uid://c5t3od608xopv" path="res://src/bullet/common/hurtbox.tscn" id="1_ywl6o"]
+
+[sub_resource type="GDScript" id="GDScript_ywl6o"]
+
+[node name="BulletTarget" type="Node2D"]
+script = SubResource("GDScript_ywl6o")
+
+[node name="Hurtbox" parent="." node_paths=PackedStringArray("target") instance=ExtResource("1_ywl6o")]
+target = NodePath("..")

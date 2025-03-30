@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c26etkolqs7lu"]
 
-[ext_resource type="Script" uid="uid://ysmmf8g0wlrc" path="res://src/battle/bullet/bullet.gd" id="1_fpilo"]
-[ext_resource type="PackedScene" uid="uid://l3hsyy7mc5w5" path="res://src/battle/common/hitbox.tscn" id="2_tqjvm"]
+[ext_resource type="Script" uid="uid://ysmmf8g0wlrc" path="res://src/bullet/bullet.gd" id="1_fpilo"]
+[ext_resource type="PackedScene" uid="uid://l3hsyy7mc5w5" path="res://src/bullet/common/hitbox.tscn" id="2_tqjvm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0a6a1"]
 size = Vector2(8, 7)

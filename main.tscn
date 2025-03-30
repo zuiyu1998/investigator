@@ -1,8 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://bj2jk0x75y78d"]
+[gd_scene load_steps=10 format=3 uid="uid://bj2jk0x75y78d"]
 
-[ext_resource type="Script" uid="uid://dk73vuiqp3h0j" path="res://src/grid.gd" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://dk73vuiqp3h0j" path="res://src/piece/grid.gd" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://chcbdma2iovja" path="res://src/enemy/tony.tscn" id="2_0xm2m"]
-[ext_resource type="Script" uid="uid://b866ebx02f21t" path="res://src/piece_grid.gd" id="3_1bvp3"]
+[ext_resource type="Script" uid="uid://b866ebx02f21t" path="res://src/piece/piece_grid.gd" id="3_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://cc1kn48f71no8" path="res://src/player/ui/asset/health_bg.png" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://c85cmvbcot22g" path="res://src/player/player_health.gd" id="5_7mycd"]
+[ext_resource type="PackedScene" uid="uid://xhtkyvxdf36v" path="res://src/player/bullet/player_health_bullet_target.tscn" id="5_lquwl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1bvp3"]
+atlas = ExtResource("4_1bvp3")
+region = Rect2(297, 133, 32, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mycd"]
+atlas = ExtResource("4_1bvp3")
+region = Rect2(57, 133, 32, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lquwl"]
+atlas = ExtResource("4_1bvp3")
+region = Rect2(57, 181, 32, 5)
 
 [node name="Main" type="Node2D"]
 
@@ -11,6 +26,7 @@
 [node name="GridContainer" type="HBoxContainer" parent="Level"]
 offset_right = 1920.0
 offset_bottom = 1080.0
+metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="Level/GridContainer"]
 layout_mode = 2
@@ -49,6 +65,64 @@ theme_override_constants/h_separation = 16
 columns = 4
 script = ExtResource("3_1bvp3")
 metadata/_edit_lock_ = true
+
+[node name="Player" type="Node2D" parent="Level"]
+position = Vector2(0, 504)
+
+[node name="MarginContainer" type="MarginContainer" parent="Level/Player"]
+offset_right = 432.0
+offset_bottom = 76.0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Level/Player/MarginContainer"]
+layout_mode = 2
+
+[node name="Health" type="HBoxContainer" parent="Level/Player/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Level/Player/MarginContainer/VBoxContainer/Health"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "生命值"
+
+[node name="PlayerHealth" type="TextureProgressBar" parent="Level/Player/MarginContainer/VBoxContainer/Health"]
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.01
+value = 1.0
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_1bvp3")
+texture_progress = SubResource("AtlasTexture_7mycd")
+script = ExtResource("5_7mycd")
+
+[node name="PlayerHealthBulletTarget" parent="Level/Player/MarginContainer/VBoxContainer/Health/PlayerHealth" instance=ExtResource("5_lquwl")]
+position = Vector2(158, 26)
+
+[node name="MarginContainer" type="MarginContainer" parent="Level/Player/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 16
+
+[node name="Reason" type="HBoxContainer" parent="Level/Player/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Level/Player/MarginContainer/VBoxContainer/Reason"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "理智度"
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Level/Player/MarginContainer/VBoxContainer/Reason"]
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.01
+value = 1.0
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_1bvp3")
+texture_progress = SubResource("AtlasTexture_lquwl")
 
 [connection signal="timeout" from="Level/Grid/DestroyTimer" to="Level/Grid" method="_on_destroy_timer_timeout"]
 [connection signal="timeout" from="Level/Grid/CollapseTimer" to="Level/Grid" method="_on_collapse_timer_timeout"]

@@ -15,6 +15,10 @@ run/main_scene="uid://bj2jk0x75y78d"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+PLAYER_DATA="*res://src/player/player_data.tscn"
+
 [display]
 
 window/size/viewport_width=1920
@@ -23,6 +27,7 @@ window/size/viewport_height=1080
 [global_group]
 
 Enemy=""
+PlayerHelath=""
 
 [input]
 

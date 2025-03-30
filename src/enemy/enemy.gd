@@ -9,7 +9,6 @@ extends Node2D
 
 
 func on_damage(damge: Damage):
-	print(damge.damage)
 	health -= damge.damage
 
 

@@ -12,9 +12,13 @@ var matched: bool = false
 
 
 func destory():
-	var bullet = BulletFactory.get_builet("fire")
+	var bullet = preload("res://src/enemy/fire_bullet.tscn").instantiate()
 	bullet.position = global_position
 	get_tree().current_scene.add_child(bullet)
+
+	var helath_bullet = preload("res://src/player/bullet/health_bullet.tscn").instantiate()
+	helath_bullet.position = global_position
+	get_tree().current_scene.add_child(helath_bullet)
 
 	queue_free()
 

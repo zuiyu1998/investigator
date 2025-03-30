@@ -1,8 +1,4 @@
-class_name Bullet
-extends Node2D
-
-@export var damage: int = 1
-@export var speed: float = 300
+extends Bullet
 
 
 func _goto_enemy(delta: float):
@@ -29,6 +25,6 @@ func _on_hitbix_area_entered(area: Area2D) -> void:
 	if area is Hurtbox:
 		var enemy = area.target as Enemy
 		var damage_result = Enemy.Damage.new()
-		damage_result.damage = self.damage
+		damage_result.damage = self.update_value
 		enemy.on_damage(damage_result)
 		queue_free()

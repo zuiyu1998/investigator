@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://blijsidyu8ckl"
-path="res://.godot/imported/All_Fire_Bullet_Pixel_16x16_06.png-2262853ae19c9207cb1505aa6b18514f.ctex"
+uid="uid://cc1kn48f71no8"
+path="res://.godot/imported/health_bg.png-074dd55bef164dbaed84300fad95c66e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/battle/bullet/asset/All_Fire_Bullet_Pixel_16x16_06.png"
-dest_files=["res://.godot/imported/All_Fire_Bullet_Pixel_16x16_06.png-2262853ae19c9207cb1505aa6b18514f.ctex"]
+source_file="res://src/player/ui/asset/health_bg.png"
+dest_files=["res://.godot/imported/health_bg.png-074dd55bef164dbaed84300fad95c66e.ctex"]
 
 [params]
 
