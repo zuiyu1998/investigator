@@ -67,13 +67,15 @@ func on_drag_end():
 	if is_in_grid(piece_postion.x, piece_postion.y):
 		var piece = PieceFactory.get_piece(drag_piece_name)
 
-		var old_piece: Piece = pieces[piece_postion.x][piece_postion.y]
-		piece.position = old_piece.position
-		pieces[piece_postion.x][piece_postion.y] = piece
+		if level.is_replace(piece):
+			level.replace(piece)
+			var old_piece: Piece = pieces[piece_postion.x][piece_postion.y]
+			piece.position = old_piece.position
+			pieces[piece_postion.x][piece_postion.y] = piece
 
-		add_child(piece)
-		old_piece.queue_free()
-		find_matchs()
+			add_child(piece)
+			old_piece.queue_free()
+			find_matchs()
 
 	drag_piece_name = null
 
@@ -283,7 +285,7 @@ func move_piece(x: int, y: int, direction: Vector2i):
 
 	if first_piece != null and other_piece != null:
 		state = State.BUSY
-		level.update_move_count()
+		level.move()
 		pieces[x + direction.x][y + direction.y] = first_piece
 		pieces[x][y] = other_piece
 

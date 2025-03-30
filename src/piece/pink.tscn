@@ -10,6 +10,7 @@
 [node name="Pink" instance=ExtResource("1_5psl5")]
 piece_id = 5
 piece_effects = Array[ExtResource("2_ujt70")]([ExtResource("3_86t2g"), ExtResource("4_5jh7a"), ExtResource("4_ujt70")])
+god_kind = 0
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_5psl5")

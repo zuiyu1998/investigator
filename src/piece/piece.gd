@@ -5,13 +5,21 @@ extends Node2D
 @export var piece_id: int
 # 棋子的匹配类型
 @export var match_type: MatchingController.MatchType = MatchingController.MatchType.SIGLE
-
+# 棋子消除的效果
 @export var piece_effects: Array[PieceEffect]
+# 棋子归属的神明
+@export var god_kind: GodConsts.GodKind = GodConsts.GodKind.NONE
+
+@export var price: int = 2
 
 var matched: bool = false
 var matched_count: int = 3
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
+
+
+func get_price() -> int:
+	return price
 
 
 func destory():

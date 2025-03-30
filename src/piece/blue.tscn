@@ -9,6 +9,7 @@
 [node name="Blue" instance=ExtResource("1_vqqav")]
 piece_id = 1
 piece_effects = Array[ExtResource("2_0eqew")]([ExtResource("2_tsqw1"), ExtResource("4_jlnh1")])
+god_kind = 0
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_vqqav")

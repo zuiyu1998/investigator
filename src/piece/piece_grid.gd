@@ -6,8 +6,9 @@ extends GridContainer
 	"yellow",
 	"pink",
 	"light_green",
-	"orange",
-	"green",
+	# 只能出现神的棋子
+	#"orange",
+	#"green",
 	"blue"
 ]
 
