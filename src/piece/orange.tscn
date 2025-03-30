@@ -1,10 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://csqf7asg5rey5"]
+[gd_scene load_steps=5 format=3 uid="uid://csqf7asg5rey5"]
 
 [ext_resource type="PackedScene" uid="uid://cib1uhbkpuadm" path="res://src/piece/piece.tscn" id="1_0bmca"]
 [ext_resource type="Texture2D" uid="uid://y8sh2n177mfg" path="res://src/piece/asset/Orange Piece.png" id="2_0bmca"]
+[ext_resource type="Script" uid="uid://btr1tdb4rowea" path="res://src/piece/effect/piece_effect.gd" id="2_ij7lu"]
+[ext_resource type="Resource" uid="uid://jk05a53qfvwm" path="res://src/piece/effect/add_health_piece_effct.tres" id="3_vpgtf"]
 
 [node name="Orange" instance=ExtResource("1_0bmca")]
 piece_id = 4
+piece_effects = Array[ExtResource("2_ij7lu")]([ExtResource("3_vpgtf")])
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_0bmca")

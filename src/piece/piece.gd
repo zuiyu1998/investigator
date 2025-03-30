@@ -6,25 +6,28 @@ extends Node2D
 # 棋子的匹配类型
 @export var match_type: MatchingController.MatchType = MatchingController.MatchType.SIGLE
 
+@export var piece_effects: Array[PieceEffect]
+
 var matched: bool = false
+var matched_count: int = 3
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
 
 func destory():
-	var bullet = preload("res://src/enemy/fire_bullet.tscn").instantiate()
-	bullet.position = global_position
-	get_tree().current_scene.add_child(bullet)
+	for piece_effect in piece_effects:
+		var bullet = piece_effect.spawn_bullet(global_position)
+		if bullet.buf:
+			bullet.update_value = bullet.update_value * matched_count
 
-	var helath_bullet = preload("res://src/player/bullet/health_bullet.tscn").instantiate()
-	helath_bullet.position = global_position
-	get_tree().current_scene.add_child(helath_bullet)
+		get_tree().current_scene.add_child(bullet)
 
 	queue_free()
 
 
-func set_matched():
+func set_matched(count: int):
 	matched = true
+	matched_count = count
 	sprite_2d.modulate.a = 0.5
 
 

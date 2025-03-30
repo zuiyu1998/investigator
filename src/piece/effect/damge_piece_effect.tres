@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PieceEffect" load_steps=3 format=3 uid="uid://btvgoluh58nns"]
+
+[ext_resource type="Script" uid="uid://btr1tdb4rowea" path="res://src/piece/effect/piece_effect.gd" id="1_qlfm0"]
+[ext_resource type="PackedScene" uid="uid://dd4wbbfhafmpb" path="res://src/enemy/fire_bullet.tscn" id="1_wb0j4"]
+
+[resource]
+script = ExtResource("1_qlfm0")
+bullet_update_value = 1
+bullet_tscn = ExtResource("1_wb0j4")
+metadata/_custom_type_script = "uid://btr1tdb4rowea"

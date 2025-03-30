@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dd4wbbfhafmpb"]
+[gd_scene load_steps=7 format=3 uid="uid://bpnyrdiqds343"]
 
-[ext_resource type="PackedScene" uid="uid://c26etkolqs7lu" path="res://src/bullet/bullet.tscn" id="1_7cwfa"]
-[ext_resource type="Script" uid="uid://bsw31nlmwsfbe" path="res://src/enemy/fire_bullet.gd" id="2_2jri0"]
-[ext_resource type="Texture2D" uid="uid://blijsidyu8ckl" path="res://src/bullet/asset/All_Fire_Bullet_Pixel_16x16_06.png" id="3_tg5v1"]
+[ext_resource type="PackedScene" uid="uid://c26etkolqs7lu" path="res://src/bullet/bullet.tscn" id="1_1sr64"]
+[ext_resource type="Script" uid="uid://b7237blye2hp7" path="res://src/player/bullet/sub_health_bullet.gd" id="2_2efqy"]
+[ext_resource type="Texture2D" uid="uid://blijsidyu8ckl" path="res://src/bullet/asset/All_Fire_Bullet_Pixel_16x16_06.png" id="3_648p7"]
 
 [sub_resource type="Animation" id="Animation_pufr2"]
 length = 0.001
@@ -43,13 +43,12 @@ _data = {
 &"loop": SubResource("Animation_c4y4d")
 }
 
-[node name="FireBullet" instance=ExtResource("1_7cwfa")]
-script = ExtResource("2_2jri0")
+[node name="SubHealthBullet" instance=ExtResource("1_1sr64")]
+script = ExtResource("2_2efqy")
 speed = 600.0
-buf = true
 
 [node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("3_tg5v1")
+texture = ExtResource("3_648p7")
 
 [node name="AnimationPlayer" parent="." index="1"]
 libraries = {

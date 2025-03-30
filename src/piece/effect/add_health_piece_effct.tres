@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PieceEffect" load_steps=3 format=3 uid="uid://jk05a53qfvwm"]
+
+[ext_resource type="Script" uid="uid://btr1tdb4rowea" path="res://src/piece/effect/piece_effect.gd" id="1_7dygj"]
+[ext_resource type="PackedScene" uid="uid://ccecnwx7j8rls" path="res://src/player/bullet/add_health_bullet.tscn" id="1_dod8u"]
+
+[resource]
+script = ExtResource("1_7dygj")
+bullet_update_value = 1
+bullet_tscn = ExtResource("1_dod8u")
+metadata/_custom_type_script = "uid://btr1tdb4rowea"

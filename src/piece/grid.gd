@@ -250,8 +250,9 @@ func find_matchs():
 				var res = piece_is_match(i, j, piece)
 				if res.matched:
 					matched = true
+					var count = res.piece_positions.size()
 					for piece_position in res.piece_positions:
-						pieces[piece_position.x][piece_position.y].set_matched()
+						pieces[piece_position.x][piece_position.y].set_matched(count)
 	if matched:
 		destroy_timer.start()
 	else:
