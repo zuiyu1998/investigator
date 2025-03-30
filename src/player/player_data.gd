@@ -2,6 +2,7 @@ class_name PlayerData
 extends Node2D
 
 signal health_update
+signal reason_update
 
 # 健康度
 var health: int = 100
@@ -9,6 +10,17 @@ var health: int = 100
 var max_health: int = 100
 # 理智度
 var reason: int = 100
+# 最大理智度
+var max_reason: int = 100
+
+
+func get_reason_percent() -> float:
+	return self.reason * 1.0 / self.max_reason
+
+
+func on_update_reason(update: int):
+	reason += update
+	reason_update.emit()
 
 
 func get_health_percent() -> float:

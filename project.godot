@@ -27,7 +27,8 @@ window/size/viewport_height=1080
 [global_group]
 
 Enemy=""
-PlayerHelath=""
+PlayerReason=""
+PlayerHealth=""
 
 [input]
 

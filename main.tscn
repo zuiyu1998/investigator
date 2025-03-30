@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bj2jk0x75y78d"]
+[gd_scene load_steps=12 format=3 uid="uid://bj2jk0x75y78d"]
 
 [ext_resource type="Script" uid="uid://dk73vuiqp3h0j" path="res://src/piece/grid.gd" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://chcbdma2iovja" path="res://src/enemy/tony.tscn" id="2_0xm2m"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://cc1kn48f71no8" path="res://src/player/ui/asset/health_bg.png" id="4_1bvp3"]
 [ext_resource type="Script" uid="uid://c85cmvbcot22g" path="res://src/player/player_health.gd" id="5_7mycd"]
 [ext_resource type="PackedScene" uid="uid://xhtkyvxdf36v" path="res://src/player/bullet/player_health_bullet_target.tscn" id="5_lquwl"]
+[ext_resource type="Script" uid="uid://ct3klbbfvbgw8" path="res://src/player/player_reason.gd" id="7_5vw27"]
+[ext_resource type="PackedScene" uid="uid://hglvxs0lmfpf" path="res://src/player/bullet/player_reason_bullet_target.tscn" id="7_272bh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1bvp3"]
 atlas = ExtResource("4_1bvp3")
@@ -113,7 +115,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "理智度"
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="Level/Player/MarginContainer/VBoxContainer/Reason"]
+[node name="PlayerReason" type="TextureProgressBar" parent="Level/Player/MarginContainer/VBoxContainer/Reason"]
 custom_minimum_size = Vector2(0, 56)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -123,6 +125,10 @@ value = 1.0
 nine_patch_stretch = true
 texture_under = SubResource("AtlasTexture_1bvp3")
 texture_progress = SubResource("AtlasTexture_lquwl")
+script = ExtResource("7_5vw27")
+
+[node name="PlayerReasonBulletTarget" parent="Level/Player/MarginContainer/VBoxContainer/Reason/PlayerReason" instance=ExtResource("7_272bh")]
+position = Vector2(160, 29)
 
 [connection signal="timeout" from="Level/Grid/DestroyTimer" to="Level/Grid" method="_on_destroy_timer_timeout"]
 [connection signal="timeout" from="Level/Grid/CollapseTimer" to="Level/Grid" method="_on_collapse_timer_timeout"]

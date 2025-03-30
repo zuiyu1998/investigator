@@ -5,7 +5,7 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ieupt"]
 
-[node name="PlayerHealthBulletTarget" groups=["PlayerHelath"] instance=ExtResource("1_1rcd6")]
+[node name="PlayerHealthBulletTarget" groups=["PlayerHealth"] instance=ExtResource("1_1rcd6")]
 script = ExtResource("2_ieupt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" index="0"]

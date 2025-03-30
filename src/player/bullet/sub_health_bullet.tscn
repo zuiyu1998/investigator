@@ -46,6 +46,8 @@ _data = {
 [node name="SubHealthBullet" instance=ExtResource("1_1sr64")]
 script = ExtResource("2_2efqy")
 speed = 600.0
+buf = true
+group_name = "PlayerHealth"
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("3_648p7")
@@ -58,5 +60,3 @@ autoplay = "loop"
 
 [node name="Hitbix" parent="." index="2" node_paths=PackedStringArray("source")]
 source = NodePath("..")
-
-[connection signal="area_entered" from="Hitbix" to="." method="_on_hitbix_area_entered"]

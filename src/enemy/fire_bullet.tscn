@@ -47,6 +47,7 @@ _data = {
 script = ExtResource("2_2jri0")
 speed = 600.0
 buf = true
+group_name = "Enemy"
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("3_tg5v1")
@@ -59,5 +60,3 @@ autoplay = "loop"
 
 [node name="Hitbix" parent="." index="2" node_paths=PackedStringArray("source")]
 source = NodePath("..")
-
-[connection signal="area_entered" from="Hitbix" to="." method="_on_hitbix_area_entered"]
