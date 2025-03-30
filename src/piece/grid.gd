@@ -3,23 +3,23 @@ extends Node2D
 
 enum State { BUSY, WAIT }
 
+@export var level: Level
+
+# 棋盘宽度
 @export var width = 16
-
+# 棋盘高度
 @export var height = 9
-
 # 最小匹配的个数
 @export var min_piece = 3
-
 # 棋子大小
 @export var offest = 64
-
 # 最大生成棋子的尝试次数
 @export var max_spawn_count = 100
 
 @export var y_offest = 4
 
 @export var piece_names: Array[String] = [
-	#todo
+	# todo
 	"yellow",
 	"pink",
 	"light_green",
@@ -222,6 +222,9 @@ func _unhandled_input(_event: InputEvent) -> void:
 
 
 func _on_touch_input():
+	if not level.is_move():
+		return
+
 	if state == State.BUSY:
 		return
 	if Input.is_action_just_pressed("touch"):
@@ -280,6 +283,7 @@ func move_piece(x: int, y: int, direction: Vector2i):
 
 	if first_piece != null and other_piece != null:
 		state = State.BUSY
+		level.update_move_count()
 		pieces[x + direction.x][y + direction.y] = first_piece
 		pieces[x][y] = other_piece
 

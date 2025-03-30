@@ -1,0 +1,160 @@
+[gd_scene load_steps=13 format=3 uid="uid://duypwjwa35wei"]
+
+[ext_resource type="Script" uid="uid://cntqp5v8t2yx" path="res://src/level/level.gd" id="1_p6v4a"]
+[ext_resource type="PackedScene" uid="uid://chcbdma2iovja" path="res://src/enemy/tony.tscn" id="2_5suky"]
+[ext_resource type="Script" uid="uid://dk73vuiqp3h0j" path="res://src/piece/grid.gd" id="3_k5trb"]
+[ext_resource type="Texture2D" uid="uid://cc1kn48f71no8" path="res://src/player/ui/asset/health_bg.png" id="4_q0oqu"]
+[ext_resource type="Script" uid="uid://c85cmvbcot22g" path="res://src/player/player_health.gd" id="5_dw4ol"]
+[ext_resource type="PackedScene" uid="uid://xhtkyvxdf36v" path="res://src/player/bullet/player_health_bullet_target.tscn" id="6_jtmpf"]
+[ext_resource type="Script" uid="uid://ct3klbbfvbgw8" path="res://src/player/player_reason.gd" id="7_5lobc"]
+[ext_resource type="PackedScene" uid="uid://hglvxs0lmfpf" path="res://src/player/bullet/player_reason_bullet_target.tscn" id="8_n4rap"]
+[ext_resource type="Script" uid="uid://b866ebx02f21t" path="res://src/piece/piece_grid.gd" id="9_iv48k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1bvp3"]
+atlas = ExtResource("4_q0oqu")
+region = Rect2(297, 133, 32, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mycd"]
+atlas = ExtResource("4_q0oqu")
+region = Rect2(57, 133, 32, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lquwl"]
+atlas = ExtResource("4_q0oqu")
+region = Rect2(57, 181, 32, 5)
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_p6v4a")
+
+[node name="GridContainer" type="HBoxContainer" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer"]
+layout_mode = 2
+
+[node name="EnemyContainer" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Tony" parent="EnemyContainer" instance=ExtResource("2_5suky")]
+position = Vector2(796, 217)
+
+[node name="Grid" type="Node2D" parent="." node_paths=PackedStringArray("level")]
+position = Vector2(896, 504)
+script = ExtResource("3_k5trb")
+level = NodePath("..")
+y_offest = 6
+metadata/_edit_lock_ = true
+
+[node name="DestroyTimer" type="Timer" parent="Grid"]
+wait_time = 0.3
+one_shot = true
+
+[node name="CollapseTimer" type="Timer" parent="Grid"]
+wait_time = 0.5
+one_shot = true
+
+[node name="RefillTimer" type="Timer" parent="Grid"]
+wait_time = 0.5
+one_shot = true
+
+[node name="Player" type="Node2D" parent="."]
+position = Vector2(0, 504)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Player"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Player/HBoxContainer"]
+custom_minimum_size = Vector2(558, 0)
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Player/HBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Health" type="HBoxContainer" parent="Player/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Player/HBoxContainer/MarginContainer/VBoxContainer/Health"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "生命值"
+
+[node name="PlayerHealth" type="TextureProgressBar" parent="Player/HBoxContainer/MarginContainer/VBoxContainer/Health" node_paths=PackedStringArray("level")]
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.01
+value = 1.0
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_1bvp3")
+texture_progress = SubResource("AtlasTexture_7mycd")
+script = ExtResource("5_dw4ol")
+level = NodePath("../../../../../..")
+
+[node name="PlayerHealthBulletTarget" parent="Player/HBoxContainer/MarginContainer/VBoxContainer/Health/PlayerHealth" instance=ExtResource("6_jtmpf")]
+position = Vector2(215, 26)
+
+[node name="MarginContainer" type="MarginContainer" parent="Player/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 16
+
+[node name="Reason" type="HBoxContainer" parent="Player/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Player/HBoxContainer/MarginContainer/VBoxContainer/Reason"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "理智度"
+
+[node name="PlayerReason" type="TextureProgressBar" parent="Player/HBoxContainer/MarginContainer/VBoxContainer/Reason" node_paths=PackedStringArray("level")]
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.01
+value = 1.0
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_1bvp3")
+texture_progress = SubResource("AtlasTexture_lquwl")
+script = ExtResource("7_5lobc")
+level = NodePath("../../../../../..")
+
+[node name="PlayerReasonBulletTarget" parent="Player/HBoxContainer/MarginContainer/VBoxContainer/Reason/PlayerReason" instance=ExtResource("8_n4rap")]
+position = Vector2(215, 31)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Player/HBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Player/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Player/HBoxContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="MoveCountLabel" type="Label" parent="Player/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "当前行动点数: 0"
+
+[node name="EndButton" type="Button" parent="Player/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "结束回合"
+
+[node name="PieceGrid" type="GridContainer" parent="Player/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(304, 474)
+layout_mode = 2
+theme_override_constants/h_separation = 16
+columns = 4
+script = ExtResource("9_iv48k")
+metadata/_edit_lock_ = true
+
+[connection signal="timeout" from="Grid/DestroyTimer" to="Grid" method="_on_destroy_timer_timeout"]
+[connection signal="timeout" from="Grid/CollapseTimer" to="Grid" method="_on_collapse_timer_timeout"]
+[connection signal="timeout" from="Grid/RefillTimer" to="Grid" method="_on_refill_timer_timeout"]

@@ -14,6 +14,11 @@ var reason: int = 100
 var max_reason: int = 100
 
 
+func reset():
+	health = max_health
+	reason = max_reason
+
+
 func get_reason_percent() -> float:
 	return self.reason * 1.0 / self.max_reason
 

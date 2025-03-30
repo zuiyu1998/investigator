@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=3 uid="uid://dd4wbbfhafmpb"]
+
+[ext_resource type="PackedScene" uid="uid://c26etkolqs7lu" path="res://src/bullet/bullet.tscn" id="1_kvkmi"]
+[ext_resource type="Script" uid="uid://bsw31nlmwsfbe" path="res://src/piece/bullet/fire_bullet.gd" id="2_qiv7l"]
+[ext_resource type="Texture2D" uid="uid://blijsidyu8ckl" path="res://src/bullet/asset/All_Fire_Bullet_Pixel_16x16_06.png" id="3_wf24v"]
+
+[sub_resource type="Animation" id="Animation_pufr2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_c4y4d"]
+resource_name = "loop"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pufr2"]
+_data = {
+&"RESET": SubResource("Animation_pufr2"),
+&"loop": SubResource("Animation_c4y4d")
+}
+
+[node name="FireBullet" instance=ExtResource("1_kvkmi")]
+script = ExtResource("2_qiv7l")
+speed = 600.0
+buf = true
+group_name = "Enemy"
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("3_wf24v")
+
+[node name="AnimationPlayer" parent="." index="1"]
+libraries = {
+&"": SubResource("AnimationLibrary_pufr2")
+}
+autoplay = "loop"
+
+[node name="Hitbix" parent="." index="2" node_paths=PackedStringArray("source")]
+source = NodePath("..")

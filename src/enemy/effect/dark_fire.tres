@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EnemyEffect" load_steps=3 format=3 uid="uid://dfashavhuooiy"]
+
+[ext_resource type="Script" uid="uid://bl3xcc5lgrclt" path="res://src/enemy/effect/enemy_effct.gd" id="1_hbtxq"]
+[ext_resource type="PackedScene" uid="uid://c1uvnp4euet6p" path="res://src/enemy/bullet/dark_fire_bullet.tscn" id="1_wljxe"]
+
+[resource]
+script = ExtResource("1_hbtxq")
+bullet_update_value = 15
+bullet_tscn = ExtResource("1_wljxe")
+metadata/_custom_type_script = "uid://bl3xcc5lgrclt"

@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://cbi00cqtmf4ws"]
+
+[ext_resource type="Script" uid="uid://b1opmrs26yom8" path="res://src/tools/scene_manager.gd" id="1_yu0pu"]
+[ext_resource type="Texture2D" uid="uid://4o4u5epsm4fb" path="res://src/tools/asset/health_bg.png" id="2_yum24"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yum24"]
+atlas = ExtResource("2_yum24")
+region = Rect2(297, 149, 32, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fnwjt"]
+atlas = ExtResource("2_yum24")
+region = Rect2(57, 181, 32, 5)
+
+[node name="SceneManager" type="Node2D"]
+script = ExtResource("1_yu0pu")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.11886, 0.323792, 0.413574, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_yum24")
+texture_progress = SubResource("AtlasTexture_fnwjt")

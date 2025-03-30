@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 PLAYER_DATA="*res://src/player/player_data.tscn"
+SCENE_MANAGER="*res://src/tools/scene_manager.tscn"
+GAME_STATE_MANAGER="*res://src/tools/game_state_manager.tscn"
 
 [display]
 

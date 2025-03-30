@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://chcbdma2iovja"]
+[gd_scene load_steps=10 format=3 uid="uid://chcbdma2iovja"]
 
 [ext_resource type="PackedScene" uid="uid://cq06ypdkrcu6r" path="res://src/enemy/enemy.tscn" id="1_4s65k"]
 [ext_resource type="Script" uid="uid://btnm3bbrvvc4h" path="res://src/enemy/tony.gd" id="2_lt7hi"]
 [ext_resource type="Texture2D" uid="uid://by54vjmqxhea8" path="res://src/enemy/ui/asset/health_bg.png" id="3_1vhau"]
+[ext_resource type="Script" uid="uid://bl3xcc5lgrclt" path="res://src/enemy/effect/enemy_effct.gd" id="3_tbapq"]
+[ext_resource type="Resource" uid="uid://dfashavhuooiy" path="res://src/enemy/effect/dark_fire.tres" id="4_k50do"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tbapq"]
 atlas = ExtResource("3_1vhau")
@@ -16,22 +18,23 @@ region = Rect2(51, 6, 42, 5)
 atlas = SubResource("AtlasTexture_1vhau")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1vhau"]
-size = Vector2(84, 147)
+size = Vector2(35, 34)
 
 [node name="Tony" instance=ExtResource("1_4s65k")]
 script = ExtResource("2_lt7hi")
 health = 200
 max_health = 200
+enemy_effecs = Array[ExtResource("3_tbapq")]([ExtResource("4_k50do")])
 
 [node name="Sprite2D" parent="." index="0"]
-position = Vector2(0, -127)
+position = Vector2(9, -56)
 scale = Vector2(2, 2)
 
 [node name="HealthUi" type="TextureProgressBar" parent="." index="1"]
-offset_left = -50.0
-offset_top = -177.0
-offset_right = -2.0
-offset_bottom = -166.0
+offset_left = -49.0
+offset_top = -109.0
+offset_right = -1.0
+offset_bottom = -98.0
 scale = Vector2(2, 2)
 max_value = 1.0
 step = 0.01
@@ -45,5 +48,5 @@ metadata/_edit_use_anchors_ = true
 target = NodePath("..")
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
-position = Vector2(0, -73)
+position = Vector2(-1, -6)
 shape = SubResource("RectangleShape2D_1vhau")
