@@ -35,6 +35,10 @@ Enemy=""
 PlayerReason=""
 PlayerHealth=""
 
+[gui]
+
+theme/custom_font="uid://dgc06006lxjl7"
+
 [input]
 
 touch={
