@@ -4,11 +4,11 @@ extends GridContainer
 @export var piece_names: Array[String] = [
 	#todo
 	"yellow",
-	"pink",
+	#"pink",
 	"light_green",
 	# 只能出现神的棋子
 	#"orange",
-	#"green",
+	"green",
 	"blue"
 ]
 

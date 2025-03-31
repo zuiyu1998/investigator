@@ -51,7 +51,6 @@ class MatchResult:
 
 
 func on_drag():
-	state = State.BUSY
 	var data = get_viewport().gui_get_drag_data()
 	if data is PieceDrag:
 		drag_piece_name = data.piece_name
@@ -68,6 +67,7 @@ func on_drag_end():
 		var piece = PieceFactory.get_piece(drag_piece_name)
 
 		if level.is_replace(piece):
+			state = State.BUSY
 			level.replace(piece)
 			var old_piece: Piece = pieces[piece_postion.x][piece_postion.y]
 			piece.position = old_piece.position
@@ -266,7 +266,7 @@ func find_matchs():
 				var res = piece_is_match(i, j, piece)
 				if res.matched:
 					matched = true
-					var count = res.piece_positions.size()
+					var count = res.piece_positions.size() - min_piece + 1
 					for piece_position in res.piece_positions:
 						pieces[piece_position.x][piece_position.y].set_matched(count)
 	if matched:

@@ -1,8 +1,11 @@
-extends TextureProgressBar
+extends HBoxContainer
 
 @export var level: Level
 
-@onready var player_health_float_text_source: Marker2D = $PlayerHealthFloatTextSource
+@onready var player_health_progress: TextureProgressBar = $PlayerHealthProgress
+@onready
+var player_health_float_text_source: Marker2D = $PlayerHealthProgress/PlayerHealthFloatTextSource
+@onready var player_health_label: Label = $PlayerHealthLabel
 
 
 func on_health_update(update: int):
@@ -17,10 +20,12 @@ func on_health_update(update: int):
 
 func _update_player_health():
 	var player_data := GlobalVar.get_single_player_data()
-	value = player_data.get_health_percent()
+	player_health_progress.value = player_data.get_health_percent()
+
+	player_health_label.text = "%s/%s" % [player_data.health, player_data.max_health]
 
 	if player_data.health <= 0:
-		level.goto_manin_menu()
+		level.goto_game_end()
 
 
 func _on_binds():

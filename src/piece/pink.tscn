@@ -1,16 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://dpw4qamphr3le"]
+[gd_scene load_steps=6 format=3 uid="uid://dpw4qamphr3le"]
 
 [ext_resource type="PackedScene" uid="uid://cib1uhbkpuadm" path="res://src/piece/piece.tscn" id="1_5psl5"]
 [ext_resource type="Texture2D" uid="uid://bgs0yi5q8c3jx" path="res://src/piece/asset/Pink Piece.png" id="2_5psl5"]
 [ext_resource type="Script" uid="uid://btr1tdb4rowea" path="res://src/piece/effect/piece_effect.gd" id="2_ujt70"]
 [ext_resource type="Resource" uid="uid://btvgoluh58nns" path="res://src/piece/effect/damge_piece_effect.tres" id="3_86t2g"]
 [ext_resource type="Resource" uid="uid://dgwer51xyjgqf" path="res://src/piece/effect/sub_health_piece_effct.tres" id="4_5jh7a"]
-[ext_resource type="Resource" uid="uid://fk4d4x1rhju5" path="res://src/piece/effect/sub_reason_piece_effct.tres" id="4_ujt70"]
 
 [node name="Pink" instance=ExtResource("1_5psl5")]
 piece_id = 5
-piece_effects = Array[ExtResource("2_ujt70")]([ExtResource("3_86t2g"), ExtResource("4_5jh7a"), ExtResource("4_ujt70")])
-god_kind = 0
+piece_effects = Array[ExtResource("2_ujt70")]([ExtResource("3_86t2g"), ExtResource("4_5jh7a")])
+god_kind = 1
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_5psl5")

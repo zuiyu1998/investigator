@@ -20,3 +20,7 @@ static func get_single_piece_tootip() -> PieceTooltip:
 
 static func get_single_float_text() -> FloatText:
 	return FLOAT_TEXT
+
+
+static func get_single_game_end() -> GameEnd:
+	return GAME_END

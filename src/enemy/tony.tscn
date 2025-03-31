@@ -1,21 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://chcbdma2iovja"]
+[gd_scene load_steps=6 format=3 uid="uid://chcbdma2iovja"]
 
 [ext_resource type="PackedScene" uid="uid://cq06ypdkrcu6r" path="res://src/enemy/enemy.tscn" id="1_4s65k"]
 [ext_resource type="Script" uid="uid://btnm3bbrvvc4h" path="res://src/enemy/tony.gd" id="2_lt7hi"]
-[ext_resource type="Texture2D" uid="uid://by54vjmqxhea8" path="res://src/enemy/ui/asset/health_bg.png" id="3_1vhau"]
 [ext_resource type="Script" uid="uid://bl3xcc5lgrclt" path="res://src/enemy/effect/enemy_effct.gd" id="3_tbapq"]
 [ext_resource type="Resource" uid="uid://dfashavhuooiy" path="res://src/enemy/effect/dark_fire.tres" id="4_k50do"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tbapq"]
-atlas = ExtResource("3_1vhau")
-region = Rect2(0, 3, 48, 11)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1vhau"]
-atlas = ExtResource("3_1vhau")
-region = Rect2(51, 6, 42, 5)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lt7hi"]
-atlas = SubResource("AtlasTexture_1vhau")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1vhau"]
 size = Vector2(35, 34)
@@ -30,21 +18,7 @@ enemy_effecs = Array[ExtResource("3_tbapq")]([ExtResource("4_k50do")])
 position = Vector2(9, -56)
 scale = Vector2(2, 2)
 
-[node name="HealthUi" type="TextureProgressBar" parent="." index="1"]
-offset_left = -49.0
-offset_top = -109.0
-offset_right = -1.0
-offset_bottom = -98.0
-scale = Vector2(2, 2)
-max_value = 1.0
-step = 0.01
-value = 1.0
-texture_under = SubResource("AtlasTexture_tbapq")
-texture_progress = SubResource("AtlasTexture_lt7hi")
-texture_progress_offset = Vector2(4, 3)
-metadata/_edit_use_anchors_ = true
-
-[node name="Hurtbox" parent="." index="2" node_paths=PackedStringArray("target")]
+[node name="Hurtbox" parent="." index="1" node_paths=PackedStringArray("target")]
 target = NodePath("..")
 metadata/_edit_lock_ = true
 
@@ -52,5 +26,20 @@ metadata/_edit_lock_ = true
 position = Vector2(-1, -6)
 shape = SubResource("RectangleShape2D_1vhau")
 
-[node name="FloatTextSource" parent="." index="3"]
+[node name="FloatTextSource" parent="." index="2"]
 position = Vector2(9, -49)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." index="3"]
+offset_left = -76.0
+offset_top = -111.0
+offset_right = 76.0
+offset_bottom = -85.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="HBoxContainer" index="0"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 18
+text = "0/20"

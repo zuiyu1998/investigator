@@ -37,7 +37,7 @@ layout_mode = 2
 metadata/_edit_lock_ = true
 
 [node name="Tony" parent="EnemyContainer" instance=ExtResource("2_5suky")]
-position = Vector2(796, 217)
+position = Vector2(971, 215)
 
 [node name="Grid" type="Node2D" parent="." node_paths=PackedStringArray("level")]
 position = Vector2(896, 504)
@@ -74,15 +74,17 @@ theme_override_constants/margin_right = 16
 [node name="VBoxContainer" type="VBoxContainer" parent="Player/HBoxContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="Health" type="HBoxContainer" parent="Player/HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="PlayerHealth" type="HBoxContainer" parent="Player/HBoxContainer/MarginContainer/VBoxContainer" node_paths=PackedStringArray("level")]
 layout_mode = 2
+script = ExtResource("5_dw4ol")
+level = NodePath("../../../../..")
 
-[node name="Label" type="Label" parent="Player/HBoxContainer/MarginContainer/VBoxContainer/Health"]
+[node name="Label" type="Label" parent="Player/HBoxContainer/MarginContainer/VBoxContainer/PlayerHealth"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "生命值"
 
-[node name="PlayerHealth" type="TextureProgressBar" parent="Player/HBoxContainer/MarginContainer/VBoxContainer/Health" node_paths=PackedStringArray("level")]
+[node name="PlayerHealthProgress" type="TextureProgressBar" parent="Player/HBoxContainer/MarginContainer/VBoxContainer/PlayerHealth"]
 custom_minimum_size = Vector2(0, 56)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -92,29 +94,35 @@ value = 1.0
 nine_patch_stretch = true
 texture_under = SubResource("AtlasTexture_1bvp3")
 texture_progress = SubResource("AtlasTexture_7mycd")
-script = ExtResource("5_dw4ol")
-level = NodePath("../../../../../..")
 
-[node name="PlayerHealthBulletTarget" parent="Player/HBoxContainer/MarginContainer/VBoxContainer/Health/PlayerHealth" instance=ExtResource("6_jtmpf")]
+[node name="PlayerHealthBulletTarget" parent="Player/HBoxContainer/MarginContainer/VBoxContainer/PlayerHealth/PlayerHealthProgress" instance=ExtResource("6_jtmpf")]
 position = Vector2(215, 26)
 metadata/_edit_lock_ = true
 
-[node name="PlayerHealthFloatTextSource" type="Marker2D" parent="Player/HBoxContainer/MarginContainer/VBoxContainer/Health/PlayerHealth"]
+[node name="PlayerHealthFloatTextSource" type="Marker2D" parent="Player/HBoxContainer/MarginContainer/VBoxContainer/PlayerHealth/PlayerHealthProgress"]
 position = Vector2(215, 5)
+
+[node name="PlayerHealthLabel" type="Label" parent="Player/HBoxContainer/MarginContainer/VBoxContainer/PlayerHealth"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "0/20"
 
 [node name="MarginContainer" type="MarginContainer" parent="Player/HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 16
 
-[node name="Reason" type="HBoxContainer" parent="Player/HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="PlayerReason" type="HBoxContainer" parent="Player/HBoxContainer/MarginContainer/VBoxContainer" node_paths=PackedStringArray("level")]
 layout_mode = 2
+script = ExtResource("7_5lobc")
+level = NodePath("../../../../..")
 
-[node name="Label" type="Label" parent="Player/HBoxContainer/MarginContainer/VBoxContainer/Reason"]
+[node name="Label" type="Label" parent="Player/HBoxContainer/MarginContainer/VBoxContainer/PlayerReason"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "理智度"
 
-[node name="PlayerReason" type="TextureProgressBar" parent="Player/HBoxContainer/MarginContainer/VBoxContainer/Reason" node_paths=PackedStringArray("level")]
+[node name="PlayerReasonProgress" type="TextureProgressBar" parent="Player/HBoxContainer/MarginContainer/VBoxContainer/PlayerReason"]
 custom_minimum_size = Vector2(0, 56)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -124,14 +132,18 @@ value = 1.0
 nine_patch_stretch = true
 texture_under = SubResource("AtlasTexture_1bvp3")
 texture_progress = SubResource("AtlasTexture_lquwl")
-script = ExtResource("7_5lobc")
-level = NodePath("../../../../../..")
 
-[node name="PlayerReasonBulletTarget" parent="Player/HBoxContainer/MarginContainer/VBoxContainer/Reason/PlayerReason" instance=ExtResource("8_n4rap")]
+[node name="PlayerReasonBulletTarget" parent="Player/HBoxContainer/MarginContainer/VBoxContainer/PlayerReason/PlayerReasonProgress" instance=ExtResource("8_n4rap")]
 position = Vector2(215, 31)
 
-[node name="PlayerReasonFloatTextSource" type="Marker2D" parent="Player/HBoxContainer/MarginContainer/VBoxContainer/Reason/PlayerReason"]
+[node name="PlayerReasonFloatTextSource" type="Marker2D" parent="Player/HBoxContainer/MarginContainer/VBoxContainer/PlayerReason/PlayerReasonProgress"]
 position = Vector2(215, 5)
+
+[node name="PlayerReasonLabel" type="Label" parent="Player/HBoxContainer/MarginContainer/VBoxContainer/PlayerReason"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "0/20"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Player/HBoxContainer"]
 layout_mode = 2

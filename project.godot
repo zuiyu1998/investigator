@@ -22,6 +22,7 @@ SCENE_MANAGER="*res://src/tools/scene_manager.tscn"
 GAME_STATE_MANAGER="*res://src/tools/game_state_manager.tscn"
 PIECE_TOOLTIP="*res://src/tools/piece_tooltip.tscn"
 FLOAT_TEXT="*res://src/tools/float_text.gd"
+GAME_END="*res://src/ui/game_end/game_end.tscn"
 
 [display]
 
