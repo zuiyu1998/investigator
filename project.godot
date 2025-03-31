@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="investigator"
-run/main_scene="uid://bj2jk0x75y78d"
+run/main_scene="uid://cbcptnsd1lu4q"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
